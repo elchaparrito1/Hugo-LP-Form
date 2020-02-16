@@ -1,0 +1,62 @@
+@charset "utf-8";
+@import "../node_modules/bulma/bulma.sass";
+
+// Import a Google font
+@import url('https://fonts.googleapis.com/css?family=Cairo&display=swap');
+
+$navy: #2F2FA2;
+
+.has-bg-img { background: url('../src/images/background-home.jpg')center center; background-size:cover; }
+
+.button {
+    background-color: $navy;
+    color: white;
+}
+
+.button:hover, :focus {
+    background-color: white;
+    color: $navy;
+    outline: 0;
+    border: 1px solid $navy;
+}
+
+.button:active {
+    background-color: $navy;
+    color: white;
+    border: 1px solid $navy;
+}
+
+.input:focus {
+    color: $navy;
+    outline: 0;
+    border: 1px solid $navy;
+}
+
+.input:active {
+    outline: 0;
+    border: 1px solid $navy;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+    border-color: $navy;
+}
+
+.image img {
+    width: 200px;
+}
+
+.logo-img {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 200px;
+    height: 200px;
+}
+
+.notification {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-card {
+    border-radius: 2px;
+}
