@@ -1,11 +1,6 @@
 // /routes/rsvpRoutes.js
 
-import {
-  SENDGRID_API_KEY,
-  SENDGRID_TEMPLATE_ID,
-  SENDGRID_USERNAME,
-  SENGRID_PASSWORD,
-} from '../config';
+import { SENDGRID_API_KEY, SENDGRID_TEMPLATE_ID } from '../config';
 
 const sgMail = require('@sendgrid/mail');
 
@@ -25,7 +20,7 @@ module.exports = app => {
     const rsvp = await Rsvp.create(req.body);
     const msg = {
       to: req.body.email,
-      from: 'phillip@hugo-lpf.com',
+      from: { email: 'phillip@hugo-lpf.com', name: 'Hugo-LP Forums' },
       templateId: SENDGRID_TEMPLATE_ID,
       subject: 'Welcome to Hugo-LP Forums',
       dynamic_template_data: {
