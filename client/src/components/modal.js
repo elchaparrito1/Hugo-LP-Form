@@ -8,8 +8,6 @@ class Modal extends React.Component {
   render() {
     const { success } = this.props;
 
-    console.log(success);
-
     if (!success) {
       return null;
     }

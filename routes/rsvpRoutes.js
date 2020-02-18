@@ -1,10 +1,6 @@
 // /routes/rsvpRoutes.js
-
-import { SENDGRID_API_KEY, SENDGRID_TEMPLATE_ID } from '../config';
-
 const sgMail = require('@sendgrid/mail');
-
-sgMail.setApiKey(SENDGRID_API_KEY);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const mongoose = require('mongoose');
 
@@ -17,11 +13,12 @@ module.exports = app => {
   });
 
   app.post(`/api/rsvp`, async (req, res) => {
+    console.log(process.env.SENDGRID_API_KEY);
     const rsvp = await Rsvp.create(req.body);
     const msg = {
       to: req.body.email,
       from: { email: 'phillip@hugo-lpf.com', name: 'Hugo-LP Forums' },
-      templateId: SENDGRID_TEMPLATE_ID,
+      templateId: process.env.SENDGRID_TEMPLATE_ID,
       subject: 'Welcome to Hugo-LP Forums',
       dynamic_template_data: {
         name: req.body.firstName,

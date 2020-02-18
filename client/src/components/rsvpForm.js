@@ -57,15 +57,13 @@ const RsvpForm = () => {
       <Modal
         success={success}
         handleModal={handleModal}
-        header={<h2>RSVP Confirmed</h2>}
+        header={<>RSVP Confirmed</>}
         body={
           <>
-            <h3>We look forward to seeing you.</h3>
+            <p>We look forward to seeing you.</p>
             <br />
-            <h2>
-              A confirmation message was just sent to the registered email.
-              Please visit Hugo-LP Forum's main page for more information.
-            </h2>
+            <p>A confirmation message was just sent to the registered email.
+            Please visit Hugo-LP Forum's main page for more information.</p>
           </>
         }
         footer="Close"
