@@ -21,9 +21,9 @@ app.use(bodyParser.json());
 // ... other app.use middleware 
 app.use(express.static(path.join(__dirname, "client", "build")))
 
-const MONGODB_URI = process.env.MONGODB_URI || process.env.MY_MONGODB_URI
+const db = process.env.MONGODB_URI;
 
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(db, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
