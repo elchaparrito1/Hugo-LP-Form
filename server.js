@@ -7,7 +7,9 @@ require('./models/Rsvp');
 
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 require("dotenv").config({ path: ".env" });
 app.use(cors());
@@ -21,14 +23,11 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONG
 
 require('./routes/rsvpRoutes')(app);
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, "client", "build")))
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
 
-app.listen(PORT, function() {
-  console.log(`Server is running on Port: ${PORT}`);
+app.listen(port, function() {
+  console.log(`Server is running on Port: ${port}`);
 });
