@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from './modal';
+import AddToCalendar from 'react-add-to-calendar'
 
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -14,6 +15,14 @@ const RsvpForm = () => {
   });
   const [blank, setBlank] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const event = {
+      title: 'Sample Event',
+      description: 'This is the sample event provided as an example only',
+      location: 'Portland, OR',
+      startTime: '2016-09-16T20:15:00-04:00',
+      endTime: '2016-09-16T21:45:00-04:00'
+  }
 
   const onChange = e => {
     setState({
@@ -64,6 +73,8 @@ const RsvpForm = () => {
             <br />
             <p>A confirmation message was just sent to the registered email.
             Please visit Hugo-LP Forum's main page for more information.</p>
+            <br />
+            <AddToCalendar event={event}/>
           </>
         }
         footer="Close"
