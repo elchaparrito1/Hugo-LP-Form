@@ -21,7 +21,9 @@ app.use(bodyParser.json());
 // ... other app.use middleware 
 app.use(express.static(path.join(__dirname, "client", "build")))
 
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@hugo-cluster-fla8c.mongodb.net/hugo?retryWrites=true&w=majority`, {
+const MONGODB_URI = process.env.MONGODB_URI || process.env.MY_MONGODB_URI
+
+mongoose.connect(MONGODB_URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
