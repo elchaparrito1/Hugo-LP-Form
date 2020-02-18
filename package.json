@@ -5,10 +5,10 @@
   "module": "server.js",
   "scripts": {
     "client": "npm run start --prefix client",
-    "server": "nodemon index.js",
+    "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "build": "react-scripts build",
-    "start": "node index.js",
+    "start": "node server.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
