@@ -5,14 +5,12 @@ const mongoose = require('mongoose');
 const path = require('path');
 require('./models/Rsvp');
 const rsvpRoute = express.Router();
+const sgMail = require('@sendgrid/mail');
 
 const app = express();
 require("dotenv").config({ path: ".env" });
 
 const port = process.env.PORT || 5000;
-
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const Rsvp = mongoose.model('rsvps');
 
@@ -35,7 +33,7 @@ connection.once('open', function() {
 })
 
 rsvpRoute.route('/rsvp').post(async (req, res) => {
-  console.log(process.env.SENDGRID_API_KEY);
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const rsvp = await Rsvp.create(req.body);
   const msg = {
     to: req.body.email,
