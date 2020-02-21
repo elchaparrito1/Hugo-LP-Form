@@ -1,8 +1,5 @@
 {
     "extends": [
         "wesbos"
-    ],
-    "plugins": [
-        "html"
     ]
 }

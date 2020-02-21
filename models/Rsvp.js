@@ -11,6 +11,7 @@ const rsvpSchema = new Schema(
     lastName: String,
     email: String,
     company: String,
+    interested: String,
   },
   { collection: 'rsvp' }
 );
