@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import AddToCalendar from 'react-add-to-calendar';
+import AddCalendar from './addCalendar';
 import Modal from './modal';
 
 /* eslint-disable jsx-a11y/label-has-for */
@@ -19,14 +19,6 @@ const RsvpForm = () => {
   const [no, setNo] = useState(false);
   const [interested, setInt] = useState(false);
   const [error, setError] = useState(false);
-
-  const event = {
-    title: 'Sample Event',
-    description: 'This is the sample event provided as an example only',
-    location: 'Portland, OR',
-    startTime: '2016-09-16T20:15:00-04:00',
-    endTime: '2016-09-16T21:45:00-04:00',
-  };
 
   const onChange = e => {
     setState({
@@ -103,6 +95,9 @@ const RsvpForm = () => {
 
       if (res.status === 201) {
         setInt(true);
+        setTimeout(() => {
+          handleModal();
+        }, 5000);
       }
 
       if (res.status === 400) {
@@ -192,10 +187,12 @@ const RsvpForm = () => {
                 <br />
                 <p>
                   A confirmation message was just sent to the registered email.
-                  Please visit Hugo-LP Forum's main page for more information.
+                  Please visit Hugo-LP Forum's{' '}
+                  <a href="https://hugo-lp-forum.now.sh/">main page</a> for more
+                  information.
                 </p>
                 <br />
-                <AddToCalendar event={event} />
+                <AddCalendar />
               </section>
               <footer className="modal-card-foot has-background-grey-lighter">
                 <button type="button" className="button" onClick={handleModal}>
