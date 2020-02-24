@@ -42,7 +42,9 @@ connection.once('open', function() {
 
 rsvpRoute.route('/rsvp').post(async (req, res) => {
   try {
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    sgMail.setApiKey(
+      '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'
+    );
     const rsvp = await Rsvp.create(req.body);
     const msg = {
       to: req.body.email,

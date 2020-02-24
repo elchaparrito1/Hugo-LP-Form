@@ -28,6 +28,7 @@ const RsvpForm = () => {
   };
 
   const checkBlank = input => {
+    console.log('did this run?');
     for (const val of input) {
       if (val === '') {
         setBlank(true);
@@ -206,15 +207,10 @@ const RsvpForm = () => {
       <div className="container">
         <div className="columns is-centered">
           <div className="column is-two-thirds">
-            <div className="notification has-background-grey-lighter">
+            <div className="notification has-background-grey-lighter small-container">
               <form onSubmit={e => handleRSVP(e)}>
                 <div className="container">
                   <div className="columns is-multiline">
-                    <div className="column is-full">
-                      <h1 className="title">
-                        Please fill out the form to RSVP.
-                      </h1>
-                    </div>
                     {blank && (
                       <div className="column is-full">
                         <div className="content">

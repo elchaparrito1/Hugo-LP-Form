@@ -68,6 +68,15 @@ a {
     color: $navy;
 }
 
+.small-container {
+    box-shadow: none;
+    border: solid 1px #e2e3e3;
+}
+
+hr {
+    border: solid 1px $navy;
+}
+
 a {
     color: $navy;
 }
