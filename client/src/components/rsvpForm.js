@@ -34,6 +34,8 @@ const RsvpForm = () => {
     if (rsvp === 'no') {
       setNo(true);
       setIsOpen(true);
+      setBlank(false);
+      setError(false);
     } else {
       setBlank(false);
       try {
@@ -127,7 +129,7 @@ const RsvpForm = () => {
                 <div className="control">
                   <label className="radio">
                     <input
-                      className="is-checkradio is-info"
+                      className="form-radio"
                       type="radio"
                       name="interested"
                       value="yes"
@@ -138,7 +140,7 @@ const RsvpForm = () => {
                   </label>
                   <label className="radio">
                     <input
-                      className="is-checkradio is-info"
+                      className="form-radio"
                       type="radio"
                       name="interested"
                       value="no"
