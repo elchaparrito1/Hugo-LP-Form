@@ -58,6 +58,7 @@ a {
 
 .notification {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #d9d9d9;
 }
 
 .modal-card {
@@ -79,4 +80,14 @@ hr {
 
 a {
     color: $navy;
+}
+
+th {
+    padding: 5px;
+    background: transparent;
+}
+
+.table {
+    border-collapse: separate;
+    background-color: transparent;
 }

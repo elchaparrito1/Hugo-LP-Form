@@ -28,8 +28,9 @@ const InfoContainer = () => (
                   information, if interested in future forums.
                 </p>
               </div>
+              <br />
+              <RsvpForm />
             </section>
-            <RsvpForm />
           </div>
         </div>
       </div>
