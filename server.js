@@ -52,6 +52,8 @@ rsvpRoute.route('/rsvp').post(async (req, res) => {
       throw new Error();
     }
 
+    await Rsvp.create(req.body);
+
     const apiKey = defaultClient.authentications['api-key'];
     apiKey.apiKey = process.env.SENDINBLUE_API_KEY_V3;
 
