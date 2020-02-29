@@ -4,7 +4,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 require('./models/Rsvp');
-const sgMail = require('@sendgrid/mail');
+const SibApiV3Sdk = require('sib-api-v3-sdk');
+
+const defaultClient = SibApiV3Sdk.ApiClient.instance;
 
 const rsvpRoute = express.Router();
 const interestRoute = express.Router();
@@ -50,27 +52,39 @@ rsvpRoute.route('/rsvp').post(async (req, res) => {
       throw new Error();
     }
 
-    await sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const apiKey = defaultClient.authentications['api-key'];
+    apiKey.apiKey = process.env.SENDINBLUE_API_KEY_V3;
 
-    await Rsvp.create(req.body);
+    const apiInstance = new SibApiV3Sdk.SMTPApi();
 
-    const msg = {
-      to: req.body.email,
-      from: { email: 'phillip@hugo-lpf.com', name: 'Hugo-LP Forums' },
-      templateId: 'd-b1d8dd5eb8b2466fac1bcf30269c6593',
-      subject: 'Welcome to Hugo-LP Forums',
-      dynamic_template_data: {
+    let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+
+    sendSmtpEmail = {
+      to: [
+        {
+          email: req.body.email,
+          name: req.body.firstName,
+        },
+      ],
+      templateId: 1,
+      params: {
         name: req.body.firstName,
+        email: req.body.email,
+      },
+      headers: {
+        'X-Mailin-custom':
+          'custom_header_1:custom_value_1|custom_header_2:custom_value_2',
       },
     };
 
-    await sgMail.send(msg, function(err, response) {
-      if (err) {
-        res.status(400).json('error');
-      } else {
+    apiInstance.sendTransacEmail(sendSmtpEmail).then(
+      function() {
         res.status(201).json('email sent');
+      },
+      function() {
+        res.status(400).json('error');
       }
-    });
+    );
   } catch (err) {
     res.status(422).json('missing data');
   }
