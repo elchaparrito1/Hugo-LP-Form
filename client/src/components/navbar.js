@@ -1,13 +1,20 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import HomeLogo from '../images/HLP.jpg';
+// import HomeLogo from '../images/HLP.jpg';
 import FormLogo from '../images/HLP.png';
 
 const MainNav = () => {
   const [bckColor, setBckColor] = useState('transparent');
+  const [burgerActive, setBurgerActive] = useState(false);
+
   const navStyle = {
     backgroundColor: bckColor,
     transition: 'background-color 1s ease',
+  };
+  const lineStyle = {
+    top: burgerActive ? 'calc(50% - 2px' : 'calc(50% + 2px',
   };
 
   useEffect(() => {
@@ -33,19 +40,27 @@ const MainNav = () => {
           />
 
           <a
+            onClick={() => {
+              setBurgerActive(!burgerActive);
+            }}
             role="button"
-            className="navbar-burger burger"
+            className={`navbar-burger burger ${
+              burgerActive ? 'is-active' : ''
+            }`}
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
           >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+            <span aria-hidden="true" style={lineStyle}></span>
           </a>
         </div>
 
-        <div id="navbarBasicExample" className="navbar-menu">
+        <div
+          id="navbarBasicExample"
+          className={`navbar-menu ${burgerActive ? 'is-active' : ''}`}
+        >
           <div className="navbar-end">
             <a className="navbar-item">Home</a>
             <a className="navbar-item">Forum</a>
