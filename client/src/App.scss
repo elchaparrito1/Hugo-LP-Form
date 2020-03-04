@@ -7,15 +7,18 @@
 
 $navy: #2F2FA2;
 
+//Global Styles:
 body {
     font-family: 'Rubik', ;
 }
 
-h1, h2, h3, label, p, button {
-    font-family: 'Playfair Display', ;
-}
+// h1, h2, h3, label, p, button {
+//     font-family: 'Playfair Display', ;
+// }
 
-.has-bg-img { background: url('../src/images/background-home.jpg')center center; background-size:cover; }
+.has-bg-img { background: url('../src/images/background-form.jpg')center center; background-size:cover; }
+
+.has-bg-img-main { background: linear-gradient(183deg, #e6e6e6, transparent 60%), url('../src/images/background-home.jpg')center center; background-size:cover; }
 
 .button {
     background-color: $navy;
@@ -50,6 +53,76 @@ h1, h2, h3, label, p, button {
     border-color: $navy;
 }
 
+hr {
+    border: solid 1px $navy;
+}
+
+a {
+    color: $navy;
+}
+
+th {
+    padding: 5px;
+    background: transparent;
+}
+
+
+
+//Home Page Styles:
+.navbar-item img {
+    max-height: none;
+}
+
+a.navbar-item {
+    margin: 10px;
+    padding: 0.5rem, 0rem
+}
+
+a.navbar-item:hover {
+    color: $navy;
+    background-color: transparent;
+}
+
+a.navbar-item:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 65%;
+  width: 0;
+  height: 2px;
+  background-color: $navy;
+  transition: width .3s ease-in-out;
+}
+
+a.navbar-item:hover:after {
+    width: 100%;
+}
+
+.custom-h2 {
+    color: #b3b3b3;
+    font-size: 150%;
+    text-shadow: 0.02em 0 black, 0 0.02em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black;
+}
+
+.navbar-burger span {
+    width: 25px;
+    height: 5px;
+}
+
+.navbar-burger span:nth-child(1) {
+    top: calc(50% - 12px);
+}
+
+.navbar-burger span:nth-child(2) {
+    top: calc(50% - 5px);
+}
+
+.navbar-burger span:nth-child(3) {
+    top: calc(50% + 2px);
+}
+
+
+//Form Styles:
 .image img {
     width: 200px;
 }
@@ -59,10 +132,6 @@ h1, h2, h3, label, p, button {
     left: 10px;
     width: 200px;
     height: 200px;
-}
-
-a {
-    width: 200px;
 }
 
 .notification {
@@ -81,19 +150,6 @@ a {
 .small-container {
     box-shadow: none;
     border: solid 1px #e2e3e3;
-}
-
-hr {
-    border: solid 1px $navy;
-}
-
-a {
-    color: $navy;
-}
-
-th {
-    padding: 5px;
-    background: transparent;
 }
 
 .table {
@@ -117,22 +173,21 @@ th {
     border-radius: 50px;
     cursor: pointer;
     margin-right: 7px;
-  }
-  
-  .form-radio:checked::before {
-    position: absolute;
-    font: 13px/1 'Open Sans', sans-serif;
-    left: 6px;
-    top: 3px;
-    content: '\02143';
-    transform: rotate(40deg);
-  }
-  
-  .form-radio:hover {
-    background-color: #f7f7f7;
-  }
-  
-  .form-radio:checked {
-    background-color: $navy;
-  }
-  
+}
+
+.form-radio:checked::before {
+  position: absolute;
+  font: 13px/1 'Open Sans', sans-serif;
+  left: 6px;
+  top: 3px;
+  content: '\02143';
+  transform: rotate(40deg);
+}
+
+.form-radio:hover {
+  background-color: #f7f7f7;
+}
+
+.form-radio:checked {
+  background-color: $navy;
+}
