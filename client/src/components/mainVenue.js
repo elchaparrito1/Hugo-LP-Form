@@ -31,10 +31,14 @@ const MainVenue = () => (
           <div className="column is-4">
             <div className="image-stack">
               <div className="image-stack__item image-stack__item--top">
-                <img src={HyattSpa} alt="Vista of spa" />
+                <img className="venue-img" src={HyattSpa} alt="Vista of spa" />
               </div>
               <div className="image-stack__item image-stack__item--bottom">
-                <img src={HyattNight} alt="Vista of hotel" />
+                <img
+                  className="venue-img"
+                  src={HyattNight}
+                  alt="Vista of hotel"
+                />
               </div>
             </div>
           </div>

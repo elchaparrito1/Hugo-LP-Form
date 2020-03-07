@@ -181,15 +181,19 @@ h2.special-solution-text {
 }
 
 .image-stack__item--top {
-    grid-column: 2 / span 15;
+    grid-column: 2 / span 13;
     grid-row: 1; // must be on the same row as the other image
     padding-top: 60%; // this pushes the image down, and keeps it proportional as it resizes
     z-index: 1; // make this image render on top of the bottom
 }
 
 .image-stack__item--bottom {
-    grid-column: 4 / -1;
+    grid-column: 9 / -1;
     grid-row: 1; // make this image be on the same row
+}
+
+.venue-img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (max-width: 320px) {
