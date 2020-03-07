@@ -36,8 +36,8 @@ const MainNav = () => {
           <img
             src={FormLogo}
             alt="Hugo-LP Forums Logo"
-            width="200"
-            height="200"
+            width="30%"
+            height="30%"
           />
 
           <a
