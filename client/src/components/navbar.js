@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 import React, { useState, useEffect } from 'react';
@@ -62,14 +63,26 @@ const MainNav = () => {
           className={`navbar-menu ${burgerActive ? 'is-active' : ''}`}
         >
           <div className="navbar-end">
-            <a className="navbar-item">Home</a>
-            <a className="navbar-item">Forum</a>
-            <a className="navbar-item">Contact</a>
+            <div className="navbar-item">
+              <a href="#home" className="link">
+                Home
+              </a>
+            </div>
+            <div className="navbar-item">
+              <a href="#forum" className="link">
+                Forum
+              </a>
+            </div>
+            <div className="navbar-item">
+              <a href="#footer" className="link">
+                Contact
+              </a>
+            </div>
             <div className="navbar-item">
               <div className="buttons">
-                <a className="button">
+                <Link className="button" to="/form">
                   <strong>RSVP</strong>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -80,11 +93,11 @@ const MainNav = () => {
 };
 
 const FormNav = () => (
-  <a className="anchor-tag" href="https://hugo-lp-forum.now.sh/" role="button">
+  <Link className="anchor-tag" to="/" role="button">
     <figure className="image">
       <img className="logo-img" alt="company logo" src={FormLogo} />
     </figure>
-  </a>
+  </Link>
 );
 
 export { FormNav, MainNav };

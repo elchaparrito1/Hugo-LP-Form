@@ -13,7 +13,7 @@ body {
 }
 
 // h1, h2, h3, label, p, button {
-//     font-family: 'Playfair Display', ;
+//     color: #4a4a4a;
 // }
 
 .has-bg-img { background: url('../src/images/background-form.jpg')center center; background-size:cover; }
@@ -66,6 +66,11 @@ th {
     background: transparent;
 }
 
+.section {
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
 
 
 //Home Page Styles:
@@ -73,29 +78,24 @@ th {
     max-height: none;
 }
 
-a.navbar-item {
-    margin: 10px;
-    padding: 0.5rem, 0rem
+.link {
+  background:
+     linear-gradient(
+       to bottom, $navy 0%,
+       $navy 100%
+     );
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 2px 0px;
+  text-decoration: none;
+  color: #4a4a4a;
+  transition: background-size .8s;
+  border-radius: 2px;
 }
 
-a.navbar-item:hover {
-    color: $navy;
-    background-color: transparent;
-}
-
-a.navbar-item:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 65%;
-  width: 0;
-  height: 2px;
-  background-color: $navy;
-  transition: width .3s ease-in-out;
-}
-
-a.navbar-item:hover:after {
-    width: 100%;
+.link:hover {
+  background-size: 2px 50px;
+  color: white;
 }
 
 .custom-h2 {
@@ -121,6 +121,146 @@ a.navbar-item:hover:after {
 //     top: calc(50% + 2px);
 // }
 
+.special-container {
+    position: relative;
+    width: 100%;
+}
+
+.special-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #4a4a4a;
+    border-radius: 290486px;
+    color: white;
+}
+
+.special-container:hover .special-overlay {
+  opacity: 1;
+}
+
+.special-text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+h2.special-solution-text { 
+    position: absolute; 
+    top: 45%; 
+    left: 0; 
+    width: 100%;
+    text-align: center; 
+}
+
+.separator { 
+  border-left: 6px solid $navy;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+} 
+
+.image-stack {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    position: relative;
+}
+
+.image-stack__item--top {
+    grid-column: 2 / span 15;
+    grid-row: 1; // must be on the same row as the other image
+    padding-top: 60%; // this pushes the image down, and keeps it proportional as it resizes
+    z-index: 1; // make this image render on top of the bottom
+}
+
+.image-stack__item--bottom {
+    grid-column: 4 / -1;
+    grid-row: 1; // make this image be on the same row
+}
+
+@media only screen and (max-width: 320px) {
+    .p-text {
+        font-size: 49%;
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 415px) {
+    .p-text {
+        font-size: 59.9%;
+    }
+}
+
+@media only screen and (min-width: 416px) and (max-width: 767px) {
+    .figure-style {
+        width: 80% !important;
+    }
+
+    .special-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 80%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: #4a4a4a;
+        border-radius: 290486px;
+        color: white;
+        margin: auto;
+    }
+
+    .p-text {
+        font-size: 70%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 768px) {
+    .figure-style {
+        width: 60% !important;
+    }
+
+    .special-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 60%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: #4a4a4a;
+        border-radius: 290486px;
+        color: white;
+        margin: auto;
+    }
+
+    .p-text {
+        font-size: 79%;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1021px) {
+    .p-text {
+        font-size: 65%;
+    }
+}
 
 //Form Styles:
 .image img {

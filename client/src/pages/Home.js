@@ -4,6 +4,7 @@ import MainLanding from '../components/mainLanding';
 import MainChallenge from '../components/mainChallenge';
 import MainMeeting from '../components/mainMeeting';
 import MainVenue from '../components/mainVenue';
+import Footer from '../components/footer';
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <MainChallenge />
       <MainMeeting />
       <MainVenue />
+      <Footer />
     </>
   );
 }
