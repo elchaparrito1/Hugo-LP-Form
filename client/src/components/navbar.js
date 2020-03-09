@@ -34,7 +34,7 @@ const MainNav = () => {
       >
         <div className="navbar-brand">
           <img
-            src={FormLogo}
+            src="https://bulma.io/images/bulma-logo.png"
             alt="Hugo-LP Forums Logo"
             width="30%"
             height="30%"

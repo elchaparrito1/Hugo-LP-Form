@@ -18,7 +18,11 @@ body {
 
 .has-bg-img { background: url('../src/images/background-form.jpg')center center; background-size:cover; }
 
-.has-bg-img-main { background: linear-gradient(183deg, #e6e6e6, transparent 60%), url('../src/images/background-home.jpg')center center; background-size:cover; }
+.has-bg-img-main { background: linear-gradient(183deg, #e6e6e6, transparent 60%), url('../src/images/background-home.jpg')center center; background-size:cover;  background-repeat: no-repeat;}
+
+@media only screen and (max-width: 1024px) {
+    .has-bg-img-main { background: linear-gradient(183deg, #e6e6e6, transparent 80%), url('../src/images/background-mobile.jpg')center center; background-size:cover; background-repeat: no-repeat;}
+}
 
 .button {
     background-color: $navy;
