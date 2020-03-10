@@ -33,12 +33,15 @@ const MainNav = () => {
         style={navStyle}
       >
         <div className="navbar-brand">
-          <img
-            src="https://bulma.io/images/bulma-logo.png"
-            alt="Hugo-LP Forums Logo"
-            width="30%"
-            height="30%"
-          />
+          <div className="navbar-item">
+            <img
+              className="main-page-logo"
+              src={FormLogo}
+              alt="Hugo LP forums logo"
+              width="150px"
+              height="28px"
+            />
+          </div>
 
           <a
             onClick={() => {
