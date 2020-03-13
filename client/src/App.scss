@@ -131,7 +131,7 @@ th {
 }
 
 .challenge-image-div {
-    display: inline-block;
+  display: inline-block;
   background: linear-gradient(to left, transparent, white 95%)
 }
 
@@ -149,7 +149,19 @@ th {
     display: inline;
     color: white;
     font-size: 120%;
-    padding: 0 5px;
+    // padding: 0 5px;
+}
+
+.challenge-text-two {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: black;
+    transform: translate(-65%, -50%);
+    display: inline;
+    color: white;
+    font-size: 120%;
+    // padding: 0 5px;
 }
 
 //MainMeeting Styles:
@@ -246,11 +258,57 @@ th {
     .p-text {
         font-size: 49%;
     }
+
+    .challenge-text {
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        background-color: black;
+        transform: translate(-75%, -50%);
+        display: inline;
+        color: white;
+        font-size: 70%;
+    }
+
+    .challenge-text-two {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        background-color: black;
+        transform: translate(-85%, -50%);
+        display: inline;
+        color: white;
+        font-size: 70%;
+        // padding: 0 5px;
+    }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 415px) {
     .p-text {
         font-size: 59.9%;
+    }
+
+    .challenge-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: black;
+        transform: translate(-75%, -50%);
+        display: inline;
+        color: white;
+        font-size: 80%;
+    }
+
+    .challenge-text-two {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        background-color: black;
+        transform: translate(-85%, -50%);
+        display: inline;
+        color: white;
+        font-size: 80%;
+        // padding: 0 5px;
     }
 }
 
@@ -289,15 +347,5 @@ th {
         color: white;
         font-size: 150%
     }
-    
-    .challenge-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        background-color: black;
-        transform: translate(-75%, -50%);
-        display: inline;
-        color: white;
-        font-size: 95%;
-    }
+
 }

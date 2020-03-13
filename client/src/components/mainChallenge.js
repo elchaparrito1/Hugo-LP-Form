@@ -98,7 +98,7 @@ const MainChallenge = () => {
                   />
                   <div className="columns">
                     <div className="column is-half">
-                      <div className="challenge-text">
+                      <div className="challenge-text-two">
                         <table>
                           <tbody>
                             <tr>
