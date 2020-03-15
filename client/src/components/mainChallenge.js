@@ -64,8 +64,8 @@ const MainChallenge = () => {
               itemClass="carousel-item-padding-40-px"
             >
               <div>
-                <div className="challenge-container challenge-image-div">
-                  <figure className="image">
+                <div className="challenge-container">
+                  <figure className="image challenge-image-div">
                     <img
                       className="challenge-image"
                       src={challengeOnePhoto}
@@ -91,8 +91,8 @@ const MainChallenge = () => {
                 </div>
               </div>
               <div>
-                <div className="challenge-container challenge-image-div">
-                  <figure className="image">
+                <div className="challenge-container">
+                  <figure className="image challenge-image-div">
                     <img
                       className="challenge-image"
                       src={challengeTwoPhoto}

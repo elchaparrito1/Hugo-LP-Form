@@ -168,6 +168,10 @@ th {
     z-index: 1;
 }
 
+.react-multi-carousel-dot-list {
+    bottom: 2%;
+}
+
 //MainMeeting Styles:
 .separator { 
     border-left: 6px solid $navy;
@@ -294,24 +298,24 @@ th {
 
     .challenge-text {
         position: absolute;
-        top: 50%;
+        top: 49%;
         left: 50%;
         background-color: black;
         transform: translate(-75%, -50%);
         display: inline;
         color: white;
-        font-size: 80%;
+        font-size: 95%;
     }
 
     .challenge-text-two {
         position: absolute;
-        top: 43%;
+        top: 42%;
         left: 50%;
         background-color: black;
         transform: translate(-85%, -50%);
         display: inline;
         color: white;
-        font-size: 80%;
+        font-size: 83%;
         // padding: 0 5px;
     }
 }
@@ -323,6 +327,29 @@ th {
 
     .p-text {
         font-size: 70%;
+    }
+
+    .challenge-text {
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        background-color: black;
+        transform: translate(-75%, -50%);
+        display: inline;
+        color: white;
+        font-size: 100%;
+    }
+
+    .challenge-text-two {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        background-color: black;
+        transform: translate(-85%, -50%);
+        display: inline;
+        color: white;
+        font-size: 100%;
+        // padding: 0 5px;
     }
 }
 
