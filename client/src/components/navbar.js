@@ -64,6 +64,7 @@ const MainNav = () => {
         <div
           id="navbarBasicExample"
           className={`navbar-menu ${burgerActive ? 'is-active' : ''}`}
+          style={{ zIndex: '2' }}
         >
           <div className="navbar-end">
             <div className="navbar-item">

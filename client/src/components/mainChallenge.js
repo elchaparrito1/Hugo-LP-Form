@@ -65,12 +65,14 @@ const MainChallenge = () => {
             >
               <div>
                 <div className="challenge-container challenge-image-div">
-                  <img
-                    className="challenge-image"
-                    src={challengeOnePhoto}
-                    alt="Man looking out window"
-                    style={{ width: '100%' }}
-                  />
+                  <figure className="image">
+                    <img
+                      className="challenge-image"
+                      src={challengeOnePhoto}
+                      alt="Man looking out window"
+                      style={{ width: '100%' }}
+                    />
+                  </figure>
                   <div className="challenge-text">
                     <table>
                       <tbody>
@@ -90,12 +92,14 @@ const MainChallenge = () => {
               </div>
               <div>
                 <div className="challenge-container challenge-image-div">
-                  <img
-                    className="challenge-image"
-                    src={challengeTwoPhoto}
-                    alt="Hands on desk for business meeting"
-                    style={{ width: '100%' }}
-                  />
+                  <figure className="image">
+                    <img
+                      className="challenge-image"
+                      src={challengeTwoPhoto}
+                      alt="Hands on desk for business meeting"
+                      style={{ width: '100%' }}
+                    />
+                  </figure>
                   <div className="columns">
                     <div className="column is-half">
                       <div className="challenge-text-two">
