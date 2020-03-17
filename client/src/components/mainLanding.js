@@ -9,9 +9,8 @@ const MainLanding = () => (
             <div className="column"></div>
             <div className="column">
               <h2 className="custom-h2 is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-5-touch is-size-6-tablet is-size-6-mobile">
-                Welcome to Hugo LP Forums website. Hugo LP Forums is a special
-                invitation summit designed to bring together leading LP’s and
-                GP’s.
+                Welcome to Hugo LP Forums. We are a special invitation summit
+                designed to bring together leading LP’s and GP’s.
               </h2>
             </div>
           </div>

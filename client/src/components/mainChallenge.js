@@ -2,8 +2,8 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import challengeOnePhoto from '../images/challenge-1.jpg';
-import challengeTwoPhoto from '../images/challenge-2.jpg';
+import time from '../images/calendar.png';
+import access from '../images/lock.png';
 
 const MainChallenge = () => {
   const responsive = {
@@ -34,17 +34,32 @@ const MainChallenge = () => {
             </h1>
             <div className="content is-size-7-mobile">
               <ol type="1">
-                <h2 className="is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-6-touch is-size-6-tablet is-size-6-mobile">
-                  <li>
-                    Having enough time, which is the most precious commodity of
-                    investors today.
-                  </li>
-                </h2>
-                <h2 className="is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-6-touch is-size-6-tablet is-size-6-mobile">
-                  <li>
-                    Successfully accessing top tier investment strategies.
-                  </li>
-                </h2>
+                <div className="columns is-gapless is-mobile">
+                  <div className="column is-10">
+                    <h2 className="is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-6-touch is-size-6-tablet is-size-6-mobile">
+                      <li>
+                        TIME: limited time, the most precious commodity of
+                        investors today.
+                      </li>
+                    </h2>
+                  </div>
+                  <div className="column is-2">
+                    <img alt="time icon" src={time} width="40" height="40" />
+                  </div>
+                </div>
+
+                <div className="columns is-gapless is-mobile">
+                  <div className="column is-10">
+                    <h2 className="is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-6-touch is-size-6-tablet is-size-6-mobile">
+                      <li>
+                        ACCESS: finding and sourcing top investment strategies.
+                      </li>
+                    </h2>
+                  </div>
+                  <div className="column is-2">
+                    <img alt="time icon" src={access} width="40" height="40" />
+                  </div>
+                </div>
               </ol>
             </div>
           </div>
@@ -53,71 +68,55 @@ const MainChallenge = () => {
               swipeable
               draggable={false}
               showDots
+              autoPlay
+              autoPlaySpeed={8000}
               responsive={responsive}
               infinite
               keyBoardControl
               customTransition="all 1s ease-out"
               transitionDuration={1000}
               containerClass="carousel-container"
-              removeArrowOnDeviceType={['tablet', 'mobile']}
+              // removeArrowOnDeviceType={['mobile']}
               dotListClass="custom-dot-list-style"
               itemClass="carousel-item-padding-40-px"
             >
               <div>
-                <div className="challenge-container">
-                  <figure className="image challenge-image-div">
-                    <img
-                      className="challenge-image"
-                      src={challengeOnePhoto}
-                      alt="Man looking out window"
-                      style={{ width: '100%' }}
-                    />
-                  </figure>
-                  <div className="challenge-text">
-                    <table>
-                      <tbody>
-                        <tr>
-                          <th style={{ color: 'white' }}>Our Solution:</th>
-                        </tr>
-                        <tr>
-                          <th style={{ color: 'white' }}>
-                            First: we invite a limited number of LP’s (primarily
-                            sophisticated E&F’s and family offices).{' '}
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
+                <div className="banner-one">
+                  <div className="banner-text">
+                    <div className="columns is-mobile">
+                      <div className="column is-2"></div>
+                      <div
+                        className="column is-5"
+                        style={{ backgroundColor: 'black' }}
+                      >
+                        <h6>
+                          TIME SOLUTION: we take the time to find and extend an
+                          exclusive invitation to a limited number of top-tier
+                          LP’s
+                        </h6>
+                      </div>
+                      <div className="column is-5"></div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div>
-                <div className="challenge-container">
-                  <figure className="image challenge-image-div">
-                    <img
-                      className="challenge-image"
-                      src={challengeTwoPhoto}
-                      alt="Hands on desk for business meeting"
-                      style={{ width: '100%' }}
-                    />
-                  </figure>
-                  <div className="columns">
-                    <div className="column is-half">
-                      <div className="challenge-text-two">
-                        <table>
-                          <tbody>
-                            <tr>
-                              <th style={{ color: 'white' }}>
-                                Second: we carefully select top fund managers
-                                from the key investment areas, including: PE,
-                                VC, HF, RE, private credit and non-correlated
-                                strategies.
-                              </th>
-                            </tr>
-                          </tbody>
-                        </table>
+                <div className="banner-two">
+                  <div className="banner-text">
+                    <div className="columns is-mobile">
+                      <div className="column is-2"></div>
+                      <div
+                        className="column is-5"
+                        style={{ backgroundColor: 'black' }}
+                      >
+                        <h6>
+                          ACCESS SOLUTION: we then carefully screen GP's to
+                          select top fund mgrs from PE, VC, RE, HF, and
+                          Non-correlated strategies.
+                        </h6>
                       </div>
+                      <div className="column is-5"></div>
                     </div>
-                    <div className="column is-half"></div>
                   </div>
                 </div>
               </div>
