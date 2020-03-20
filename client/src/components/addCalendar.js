@@ -1,5 +1,5 @@
 import React from 'react';
-import iCal from '../ics/HugoLP_Forum.ics';
+import iCal from '../ics/HugoLP_Fall_Forum.ics';
 
 const AddCalendar = () => (
   <>
@@ -10,7 +10,7 @@ const AddCalendar = () => (
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20201009T170000Z%2F20201010T220000Z&text=Hugo-LP%20Forum&location=9100%20Marsac%20Avenue%20Park%20City%2C%20UT%2084060&details=Hugo-LP%20Forums%20is%20a%20special%20invitation%20summit%20designed%20to%20bring%20together%20leading%20LP%E2%80%99s%20and%20GP%E2%80%99s."
+              href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20201102T010000Z%2F20201105T010000Z&text=Hugo-LP%20Fall%20Forum%202020&location=7500%20E%20Doubletree%20Ranch%20Rd%2C%20Scottsdale%2C%20AZ%2085258&details=Exclusive%202-day%20event%20to%20meet%2C%20collaborate."
             >
               +GoogleCal
             </a>

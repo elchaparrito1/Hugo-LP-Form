@@ -10,7 +10,7 @@ const FormInfoContainer = () => (
             <section className="section">
               <div className="container">
                 <h1 className="title">Fall Forum</h1>
-                <h2 className="subtitle">October 9 - October 10</h2>
+                <h2 className="subtitle">November 2 - November 5</h2>
                 <h2 className="subtitle">
                   {' '}
                   Forum designed to optimize your time with a unique meeting

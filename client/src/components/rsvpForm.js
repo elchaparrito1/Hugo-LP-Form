@@ -185,7 +185,7 @@ const RsvpForm = () => {
                 <p>
                   A confirmation message was just sent to the registered email.
                   Please visit Hugo-LP Forum's{' '}
-                  <a href="https://hugo-lp-forum.now.sh/">main page</a> for more
+                  <a href="http://www.hugo-lpf.com/">main page</a> for more
                   information.
                 </p>
                 <br />

@@ -17,6 +17,10 @@ body {
     font-family: 'Rubik', ;
 }
 
+// *, *:before, *:after {
+//     -webkit-appearance: none;
+// }
+
 // h1, h2, h3, label, p, button {
 //     color: #4a4a4a;
 // }
@@ -43,6 +47,12 @@ body {
     border: 1px solid $navy;
 }
 
+.no-btn:active, .no-btn:focus, .no-btn::after, .no-btn::before {
+    background-color: transparent;
+    outline: 0;
+    border: none;
+}
+
 .input:focus {
     color: $navy;
     outline: 0;
@@ -57,6 +67,8 @@ body {
 .select:not(.is-multiple):not(.is-loading)::after {
     border-color: $navy;
 }
+
+button:focus {outline:0;}
 
 hr {
     border: solid 1px $navy;
@@ -74,6 +86,16 @@ th {
 .section {
     padding-top: 75px;
     padding-bottom: 75px;
+}
+
+.title {
+    font-weight: 200;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+    color: #363636;
+    font-weight: 100;
+    line-height: 1.125;
 }
 
 //NavBar Styles:
@@ -124,7 +146,7 @@ th {
 
 
 //MainChallenge Styles:
-.banner h6 {
+.banner h5 {
     margin: 0;
     text-shadow: 2px 2px 6px #000;
     text-align: center;
@@ -186,7 +208,7 @@ th {
 
 //MainMeeting Styles:
 .separator { 
-    border-left: 6px solid $navy;
+    border-left: 4px solid $navy;
     height: 100%;
     position: absolute;
     left: 50%;
@@ -199,9 +221,165 @@ th {
 }
 
 //MainVenue Styles:
+.image-event img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
 
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative
+}
+
+.card-image {
+    background-color: $light-gray;
+}
+
+.card-content {
+    background-color: $light-gray;
+}
+
+.pdf-download, .modal-test {
+    background-color: transparent;
+    color: $navy;
+    border: none;
+}
+
+.pdf-download:hover, .pdf-download:active, .pdf-download:after, .pdf-download:focus {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: orange;
+}
+
+.modal-test:hover, .modal-test:active, .modal-test:after, .modal-test:focus {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: orange;
+}
+
+#wrapper {
+    display: flex;
+    justify-content: flex-end;
+    // background-color: purple;
+}
+
+#parent {
+    width: 100%;
+    height: 300px;
+    background-image: linear-gradient(to left, transparent, #dbdbdb 70%), url("../src/images/Hyatt.png");
+    background-size: cover; /* or contain depending on what you want */
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#child {
+    display: inline;
+    color: black;
+    text-align: center;
+    margin: 0;
+    text-shadow: 2px 2px 6px #000;
+}
 
 //Footer Styles:
+.footer-distributed {
+  background-color: $dark-gray;
+//   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  padding: 45px 50px;
+}
+
+.footer-distributed .footer-left p {
+  color: #8f9296;
+  font-size: 14px;
+  margin: 0;
+}
+/* Footer links */
+
+.footer-distributed p.footer-links {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 10px;
+  padding: 0;
+  transition: ease .25s;
+}
+
+.footer-distributed p.footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+  transition: ease .25s;
+}
+
+.footer-distributed p.footer-links a:after {
+
+
+    color: orange;
+
+  }
+
+.footer-distributed .footer-links a:before {
+  content: "·";
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+.footer-distributed .footer-right {
+  float: right;
+  margin-top: 6px;
+  max-width: 180px;
+}
+
+.footer-distributed .footer-right a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 3px;
+  transition:all .25s;
+}
+
+.footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
+
+.footer-distributed p.footer-links a:hover{text-decoration:underline;}
+
+/* Media Queries */
+
+@media (max-width: 600px) {
+  .footer-distributed .footer-left, .footer-distributed .footer-right {
+    text-align: center;
+  }
+  .footer-distributed .footer-right {
+    float: none;
+    margin: 0 auto 20px;
+  }
+  .footer-distributed .footer-left p.footer-links {
+    line-height: 1.8;
+  }
+}
 
 //Form Styles:
 .image img {
@@ -284,6 +462,17 @@ th {
     .p-text {
         font-size: 59.9%;
     }
+
+    .circular--landscape {
+        width: 250px;
+        height: 250px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin: auto;
+        box-shadow: 0 0 250px black;
+        -webkit-box-shadow: 0 0 250px black;
+        -moz-box-shadow: 0 0 250px black;
+    }
 }
 
 @media only screen and (min-width: 416px) and (max-width: 767px) {
@@ -293,6 +482,17 @@ th {
 
     .p-text {
         font-size: 70%;
+    }
+
+    .circular--landscape {
+        width: 250px;
+        height: 250px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin: auto;
+        box-shadow: 0 0 250px rgba(0, 0, 0, .8);
+        -webkit-box-shadow: 0 0 250px rgba(0, 0, 0, .8);
+        -moz-box-shadow: 0 0 250px rgba(0, 0, 0, .8);
     }
 }
 

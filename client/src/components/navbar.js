@@ -74,7 +74,7 @@ const MainNav = () => {
             </div>
             <div className="navbar-item">
               <a href="#forum" className="link">
-                Forum
+                About
               </a>
             </div>
             <div className="navbar-item">
