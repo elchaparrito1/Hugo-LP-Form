@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // import HomeLogo from '../images/HLP.jpg';
+import { Link as ScrollLink } from 'react-scroll';
 import FormLogo from '../images/HLP.png';
 
 const MainNav = () => {
@@ -68,19 +69,43 @@ const MainNav = () => {
         >
           <div className="navbar-end">
             <div className="navbar-item">
-              <a href="#home" className="link">
+              <ScrollLink
+                activeClass="active"
+                className="link"
+                to="home"
+                spy
+                smooth
+                offset={-70}
+                duration={500}
+              >
                 Home
-              </a>
+              </ScrollLink>
             </div>
             <div className="navbar-item">
-              <a href="#forum" className="link">
+              <ScrollLink
+                activeClass="active"
+                className="link"
+                to="forum"
+                spy
+                smooth
+                offset={-70}
+                duration={500}
+              >
                 About
-              </a>
+              </ScrollLink>
             </div>
             <div className="navbar-item">
-              <a href="#footer" className="link">
+              <ScrollLink
+                activeClass="active"
+                className="link"
+                to="footer"
+                spy
+                smooth
+                offset={-70}
+                duration={500}
+              >
                 Contact
-              </a>
+              </ScrollLink>
             </div>
             <div className="navbar-item">
               <div className="buttons">
