@@ -184,9 +184,9 @@ const RsvpForm = () => {
                 <br />
                 <p>
                   A confirmation message was just sent to the registered email.
-                  Please visit
-                  <a href="http://www.hugo-lpf.com/"> Hugo-LP Forum</a> for more
-                  information.
+                  Please visit{' '}
+                  <a href="http://www.hugo-lpf.com/"> Hugo-LP Forum </a> for
+                  more information.
                 </p>
                 <br />
                 <AddCalendar />
