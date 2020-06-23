@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-named-as-default-member */
 import React, { useState } from 'react';
 import axios from 'axios';
 import AddCalendar from './addCalendar';
