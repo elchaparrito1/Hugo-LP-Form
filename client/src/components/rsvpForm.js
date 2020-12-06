@@ -42,7 +42,7 @@ const RsvpForm = () => {
       setBlank(false);
       try {
         const res = await axios.post('/api/rsvp', state);
-
+        console.log(res);
         if (res.status === 201) {
           setState({
             rsvp: 'yes',
@@ -187,8 +187,15 @@ const RsvpForm = () => {
                 <p>
                   A confirmation message was just sent to the registered email.
                   Please visit{' '}
-                  <a href="http://www.hugo-lpf.com/"> Hugo-LP Forum </a> for
-                  more information.
+                  <a
+                    rel="noreferrer"
+                    target="_blank"
+                    href="http://www.hugo-lpf.com/"
+                  >
+                    {' '}
+                    Hugo-LP Forum{' '}
+                  </a>{' '}
+                  for more information.
                 </p>
                 <br />
                 <AddCalendar />

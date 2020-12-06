@@ -44,6 +44,8 @@ connection.once('open', function() {
 
 rsvpRoute.route('/rsvp').post(async (req, res) => {
   try {
+    console.log(req.body);
+
     if (
       req.body.email === '' ||
       req.body.firstName === '' ||
@@ -78,6 +80,8 @@ rsvpRoute.route('/rsvp').post(async (req, res) => {
           'custom_header_1:custom_value_1|custom_header_2:custom_value_2',
       },
     };
+
+    console.log(`this ran: ${res}`);
 
     apiInstance.sendTransacEmail(sendSmtpEmail).then(
       function() {

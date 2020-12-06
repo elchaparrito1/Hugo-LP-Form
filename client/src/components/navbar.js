@@ -15,15 +15,27 @@ const MainNav = () => {
     backgroundColor: bckColor,
     transition: 'background-color 1s ease',
   };
+
   const lineStyle = {
     top: burgerActive ? 'calc(50% - 2px' : 'calc(50% + 2px',
   };
 
+  const changeBurger = () => {
+    setBurgerActive(!burgerActive);
+  };
+
   useEffect(() => {
-    document.addEventListener('scroll', () => {
+    const changeColor = () => {
       setBckColor(window.scrollY < 80 ? 'transparent' : 'white');
-    });
-  });
+    };
+
+    document.addEventListener('scroll', changeColor);
+
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener('scroll', changeColor);
+    };
+  }, []);
 
   return (
     <>
@@ -45,9 +57,7 @@ const MainNav = () => {
           </div>
 
           <a
-            onClick={() => {
-              setBurgerActive(!burgerActive);
-            }}
+            onClick={changeBurger}
             role="button"
             className={`navbar-burger burger ${
               burgerActive ? 'is-active' : ''

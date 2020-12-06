@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { Element } from 'react-scroll';
 
-const sectionStyle = {
-  backgroundColor: '#939393',
-};
+const MainMeeting = () => {
+  const sectionStyle = {
+    backgroundColor: '#939393',
+  };
 
-const useWindowWidth = () => {
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -15,13 +15,7 @@ const useWindowWidth = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  });
-
-  return width;
-};
-
-const MainMeeting = () => {
-  const size = useWindowWidth();
+  }, []);
 
   return (
     <>
@@ -56,8 +50,8 @@ const MainMeeting = () => {
                 </div>
               </div>
               <div className="column is-2">
-                {size >= 769 && <div className="separator"></div>}
-                {size < 769 && <hr />}
+                {width >= 769 && <div className="separator"></div>}
+                {width < 769 && <hr />}
               </div>
               <div className="column is-5">
                 <h2 className="title is-size-3-fullhd is-size-4-widescreen is-size-4-desktop is-size-5-touch is-size-5-tablet is-size-5-mobile">
