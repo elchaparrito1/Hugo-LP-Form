@@ -1,5 +1,8 @@
 import express from 'express';
-import Rsvp from '../models/Rsvp';
+
+require('../models/Rsvp');
+
+const Rsvp = require('mongoose').model('rsvps');
 
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 

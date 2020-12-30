@@ -107,7 +107,6 @@ const RsvpForm = () => {
   const handleRSVP = async e => {
     e.preventDefault();
     const blanks = Object.entries(state).filter(([k, v]) => v === '');
-    console.log(state);
 
     if (blanks.length > 0) {
       setStatus({
@@ -119,8 +118,6 @@ const RsvpForm = () => {
         status: 'Processing...',
         error: false,
       });
-
-      console.log(state.confirmed);
 
       const res = await axios.post('/api/rsvp', state);
 
