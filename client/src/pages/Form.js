@@ -1,6 +1,7 @@
 import React from 'react';
 import { FormNav } from '../components/navbar';
 import FormInfoContainer from '../components/formInfoContainer';
+import Footer from '../components/footer';
 import '../App.scss';
 
 const Form = () => (
@@ -12,6 +13,7 @@ const Form = () => (
           <FormInfoContainer />
         </div>
       </div>
+      <Footer />
     </section>
   </>
 );

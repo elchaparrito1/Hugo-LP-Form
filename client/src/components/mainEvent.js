@@ -69,7 +69,7 @@ const MainEvent = () => (
             <strong style={{ fontSize: '1.5em' }}>+Forum Outline</strong>
           </a>
         </button>
-        <br />
+        {/* <br />
         <button type="button" className="pdf-download">
           <a
             className="pdf-download"
@@ -79,7 +79,7 @@ const MainEvent = () => (
           >
             <strong style={{ fontSize: '1.5em' }}>+Forum Venue</strong>
           </a>
-        </button>
+        </button> */}
       </div>
     </section>
   </>

@@ -23,9 +23,9 @@ const FormInfoContainer = () => (
                   <strong>Investor Participation</strong>
                 </h2>
                 <p>
-                  Please fill out the form below if you are interested in
-                  participating in the forum, or would like to receive more
-                  information, if interested in future forums.
+                  HUGO-LP Forums are by invitation only. Please enter your email
+                  below to confirm your invitation, and participation in the
+                  upcoming forum listed above.
                 </p>
               </div>
               <br />

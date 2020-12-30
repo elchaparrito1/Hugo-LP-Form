@@ -12,7 +12,7 @@ const MainAbout = () => (
         <div className="columns is-vcentered">
           <div className="column is-half">
             <h2 className="title is-size-3-fullhd is-size-4-widescreen is-size-4-desktop is-size-5-touch is-size-5-tablet is-size-5-mobile">
-              Hugo LP Forums was created to bring together top tier E&F’s and
+              HUGO-LP Forums was created to bring together top tier E&F’s and
               sophisticated family offices toward two achievements:
             </h2>
           </div>

@@ -25,7 +25,7 @@ const MainMeeting = () => {
             <div className="columns is-vcentered is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
               <div className="column is-5">
                 <h2 className="title is-size-3-fullhd is-size-4-widescreen is-size-4-desktop is-size-5-touch is-size-5-tablet is-size-5-mobile">
-                  Hugo Forums provide an exclusive and intimate setting to
+                  HUGO-LP Forums provides an exclusive and intimate setting to
                   achieve:
                 </h2>
                 <div className="content">
@@ -55,7 +55,7 @@ const MainMeeting = () => {
               </div>
               <div className="column is-5">
                 <h2 className="title is-size-3-fullhd is-size-4-widescreen is-size-4-desktop is-size-5-touch is-size-5-tablet is-size-5-mobile">
-                  Hugo LP Forums is not seeking to become the largest
+                  HUGO-LP Forums is not seeking to become the largest
                   institutional investment conference in our industry. Rather,
                   our goal is to be the premier investment forum for connecting
                   top LP’s with top GP’s.

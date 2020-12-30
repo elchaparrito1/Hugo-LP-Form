@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/interactive-supports-focus */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 // import HomeLogo from '../images/HLP.jpg';
 import { Link as ScrollLink } from 'react-scroll';
@@ -37,9 +37,33 @@ const MainNav = () => {
     };
   }, []);
 
+  const useOutsideClick = ref => {
+    useEffect(() => {
+      /**
+       * Close menu if clicked outside of ref
+       */
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setBurgerActive(false);
+        }
+      }
+
+      // Bind the event listener
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  const navref = useRef(null);
+  useOutsideClick(navref);
+
   return (
     <>
       <nav
+        ref={navref}
         className="navbar is-fixed-top"
         role="navigation"
         aria-label="main navigation"
@@ -51,8 +75,6 @@ const MainNav = () => {
               className="main-page-logo"
               src={FormLogo}
               alt="Hugo LP forums logo"
-              width="150px"
-              height="28px"
             />
           </div>
 

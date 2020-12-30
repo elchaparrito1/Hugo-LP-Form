@@ -6,12 +6,12 @@ const { Schema } = mongoose;
 
 const rsvpSchema = new Schema(
   {
-    rsvp: String,
+    title: String,
     firstName: String,
     lastName: String,
     email: String,
-    company: String,
-    interested: String,
+    organization: String,
+    confirmed: Boolean,
   },
   { collection: 'rsvp' }
 );
