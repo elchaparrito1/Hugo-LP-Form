@@ -1,8 +1,8 @@
 import React from 'react';
 import pdf from '../documents/meeting-outline.pdf';
-import oneOnOne from '../images/one-on-one-2.jpg';
-import colab from '../images/collaboration.png';
-import golf from '../images/golf.jpg';
+import imgOne from '../images/one-on-one.jpg';
+import imgTwo from '../images/roundtable-discussion.jpg';
+import imgThree from '../images/follow-up.jpg';
 
 const MainEvent = () => (
   <>
@@ -21,11 +21,11 @@ const MainEvent = () => (
             <div className="card equal-height">
               <div className="card-image">
                 <figure className="image-event is-480x480 is-inline-block">
-                  <img alt="One on one meeting" className="" src={oneOnOne} />
+                  <img alt="One on one meeting" className="" src={imgOne} />
                 </figure>
               </div>
               <div className="card-content">
-                <h2 className="main-event-text">LP/GP 1:1 Meetings</h2>
+                <h2 className="main-event-text">LP / GP 1:1 Meetings</h2>
               </div>
             </div>
           </div>
@@ -33,28 +33,23 @@ const MainEvent = () => (
             <div className="card equal-height">
               <div className="card-image">
                 <figure className="image-event is-480x480 is-inline-block">
-                  <img alt="One on one meeting" className="" src={colab} />
+                  <img alt="One on one meeting" className="" src={imgTwo} />
                 </figure>
               </div>
               <div className="card-content">
-                <h2 className="main-event-text">
-                  LP's collaborate on best practices, mgr sourcing, etc.
-                </h2>
+                <h2 className="main-event-text">Roundtable Discussions</h2>
               </div>
             </div>
           </div>
-
           <div className="column is-one-third">
             <div className="card equal-height">
               <div className="card-image">
                 <figure className="image-event is-480x480 is-inline-block">
-                  <img alt="One on one meeting" className="" src={golf} />
+                  <img alt="One on one meeting" className="" src={imgThree} />
                 </figure>
               </div>
               <div className="card-content">
-                <h2 className="main-event-text">
-                  Outdoor activity of golf and hiking
-                </h2>
+                <h2 className="main-event-text">Post-forum Collaboration</h2>
               </div>
             </div>
           </div>
