@@ -12,7 +12,6 @@ const rsvpRoute = express.Router();
 
 export default rsvpRoute.post('', async (req, res) => {
   try {
-    console.log(req.body);
     const {
       title,
       firstName,

@@ -8,10 +8,8 @@ const confirmEmailRoute = express.Router();
 
 export default confirmEmailRoute.post('', async (req, res) => {
   try {
-    console.log('this running?');
     const email = req.body;
     const attendee = await Rsvp.findOne(email);
-    console.log(attendee);
     if (attendee) {
       res.status(201).send(attendee);
     } else {

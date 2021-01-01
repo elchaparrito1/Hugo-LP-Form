@@ -69,7 +69,7 @@ const RsvpForm = () => {
           error: false,
         });
         const res = await axios.post('/api/confirm-email', {
-          email: confirmEmail,
+          email: confirmEmail.toLowerCase(),
         });
 
         if (res.status === 201) {
@@ -107,37 +107,39 @@ const RsvpForm = () => {
   const handleRSVP = async e => {
     e.preventDefault();
     const blanks = Object.entries(state).filter(([k, v]) => v === '');
-
-    if (blanks.length > 0) {
-      setStatus({
-        status: 'Missing information. Please fill in all required fields (*).',
-        error: true,
-      });
-    } else {
-      setStatus({
-        status: 'Processing...',
-        error: false,
-      });
-
-      const res = await axios.post('/api/rsvp', state);
-
-      if (res.status === 201) {
-        setState({
-          title: '',
-          firstName: '',
-          lastName: '',
-          email: '',
-          organization: '',
-          confirmed: false,
-        });
+    try {
+      if (blanks.length > 0) {
         setStatus({
-          status: '',
+          status:
+            'Missing information. Please fill in all required fields (*).',
+          error: true,
+        });
+      } else {
+        setStatus({
+          status: 'Processing...',
           error: false,
         });
-        setIsOpen(true);
-      }
 
-      if (res.data === 'error') {
+        const res = await axios.post('/api/rsvp', state);
+
+        if (res.status === 201) {
+          setState({
+            title: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            organization: '',
+            confirmed: false,
+          });
+          setStatus({
+            status: '',
+            error: false,
+          });
+          setIsOpen(true);
+        }
+      }
+    } catch (error) {
+      if (error.repsonse.data === 'error') {
         setStatus({
           status: 'Error occurred. Please refresh page and try again.',
           error: true,
@@ -274,7 +276,7 @@ const RsvpForm = () => {
                     <div className="column is-one-third is-centered">
                       <div className="control">
                         <label className="label">Email</label>
-                        <p>{confirmEmail}</p>
+                        <p>{state.email}</p>
                       </div>
                     </div>
                     <div className="column is-one-third">
