@@ -23,7 +23,7 @@ const Footer = () => (
             </a>
           </p>
 
-          <p>HUGO-LP Forums &copy; 2020</p>
+          <p>HUGO-LP Forums &copy; 2021</p>
         </div>
       </footer>
     </Element>

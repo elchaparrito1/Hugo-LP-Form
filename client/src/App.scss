@@ -32,7 +32,7 @@ body {
 
 .has-bg-img-main {
   background: linear-gradient(183deg, #e6e6e6, transparent 60%),
-    url('../src/images/background-home-two.jpg') center center;
+    url('../src/images/background-home.jpg') center center;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -57,12 +57,8 @@ body {
 }
 
 .no-btn:active,
-.no-btn:focus,
-.no-btn::after,
-.no-btn::before {
-  background-color: transparent;
-  outline: 0;
-  border: none;
+.no-btn:focus {
+  border: 2px solid $navy;
 }
 
 .input:focus {
@@ -127,6 +123,25 @@ th {
   max-height: none;
 }
 
+.no-btn-nav {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  font-size: 1em;
+  color: $dark-gray;
+}
+
+.no-btn-nav:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.no-btn-nav:active,
+.no-btn-nav:focus {
+  border: 2px solid $navy;
+}
+
 .link {
   background: linear-gradient(to bottom, $navy 0%, $navy 100%);
   background-position: 0 100%;
@@ -162,6 +177,7 @@ th {
   color: white;
   font-size: 150%;
   background-color: black;
+  padding: 1px;
 }
 
 //MainChallenge Styles:

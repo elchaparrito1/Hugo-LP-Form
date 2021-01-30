@@ -1,5 +1,5 @@
 import React from 'react';
-import { MainNav } from '../components/navbar';
+import { MainNav } from '../components/navbars';
 import MainLanding from '../components/mainLanding';
 import MainAbout from '../components/mainAbout';
 import MainChallenge from '../components/mainChallenge';

@@ -139,7 +139,7 @@ const RsvpForm = () => {
         }
       }
     } catch (error) {
-      if (error.repsonse.data === 'error') {
+      if (error.response.data === 'error') {
         setStatus({
           status: 'Error occurred. Please refresh page and try again.',
           error: true,

@@ -1,16 +1,16 @@
 import React from 'react';
 import { FormNav } from '../components/navbars';
-import FormInfoContainer from '../components/formInfoContainer';
+// import FormInfoContainer from '../components/formInfoContainer';
 import Footer from '../components/footer';
 import '../App.scss';
 
-const Form = () => (
+const RSVP = () => (
   <>
     <section className="hero is-fullheight has-bg-img">
       <FormNav />
       <div className="hero-body">
         <div className="container">
-          <FormInfoContainer />
+          <h1>Hi</h1>
         </div>
       </div>
       <Footer />
@@ -18,4 +18,4 @@ const Form = () => (
   </>
 );
 
-export default Form;
+export default RSVP;

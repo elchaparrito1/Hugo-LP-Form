@@ -9,14 +9,15 @@ const FormInfoContainer = () => (
           <div className="notification">
             <section className="section">
               <div className="container">
-                <h1 className="title">Fall Forum</h1>
-                <h2 className="subtitle">November 2 - November 5</h2>
+                <h1 className="title">Virtual Event</h1>
+                <h2 className="subtitle">March 30 - March 31</h2>
                 <h2 className="subtitle">
                   {' '}
-                  Forum designed to optimize your time with a unique meeting
-                  format of effective one-on-one LP/GP meetings. The focus of
-                  the forum is facilitating 1:1 meetings with managers of your
-                  choice.
+                  HUGO Forum is an invitation-only event that allows investors
+                  to meet multiple managers in small LP groups. Our upcoming
+                  forum will be a virtual event. The event provides an efficient
+                  platform to meet other investors and managers over two
+                  half-day sessions.
                 </h2>
                 <hr />
                 <h2 className="subtitle">

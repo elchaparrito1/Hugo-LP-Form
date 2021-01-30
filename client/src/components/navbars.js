@@ -110,7 +110,9 @@ const MainNav = () => {
                 offset={-70}
                 duration={500}
               >
-                Home
+                <button className="no-btn-nav" type="button">
+                  Home
+                </button>
               </ScrollLink>
             </div>
             <div className="navbar-item">
@@ -123,7 +125,9 @@ const MainNav = () => {
                 offset={-70}
                 duration={500}
               >
-                About
+                <button className="no-btn-nav" type="button">
+                  About
+                </button>
               </ScrollLink>
             </div>
             <div className="navbar-item">
@@ -136,13 +140,15 @@ const MainNav = () => {
                 offset={-70}
                 duration={500}
               >
-                Contact
+                <button className="no-btn-nav" type="button">
+                  Contact
+                </button>
               </ScrollLink>
             </div>
             <div className="navbar-item">
               <div className="buttons">
                 <Link className="button" to="/form">
-                  <strong>RSVP</strong>
+                  <strong>Registration</strong>
                 </Link>
               </div>
             </div>
@@ -153,12 +159,104 @@ const MainNav = () => {
   );
 };
 
-const FormNav = () => (
-  <Link className="anchor-tag" to="/" role="button">
-    <figure className="image">
-      <img className="logo-img" alt="company logo" src={FormLogo} />
-    </figure>
-  </Link>
-);
+const FormNav = () => {
+  const [burgerActive, setBurgerActive] = useState(false);
+
+  const lineStyle = {
+    top: burgerActive ? 'calc(50% - 2px' : 'calc(50% + 2px',
+  };
+
+  const changeBurger = () => {
+    setBurgerActive(!burgerActive);
+  };
+
+  const useOutsideClick = ref => {
+    useEffect(() => {
+      /**
+       * Close menu if clicked outside of ref
+       */
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setBurgerActive(false);
+        }
+      }
+
+      // Bind the event listener
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  const navref = useRef(null);
+  useOutsideClick(navref);
+
+  return (
+    <>
+      <nav
+        ref={navref}
+        className="navbar"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div className="navbar-brand">
+          <div className="navbar-item">
+            <img
+              className="main-page-logo"
+              src={FormLogo}
+              alt="Hugo LP forums logo"
+            />
+          </div>
+
+          <a
+            onClick={changeBurger}
+            role="button"
+            className={`navbar-burger burger ${
+              burgerActive ? 'is-active' : ''
+            }`}
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true" style={lineStyle}></span>
+          </a>
+        </div>
+
+        <div
+          id="navbarBasicExample"
+          className={`navbar-menu ${burgerActive ? 'is-active' : ''}`}
+          style={{ zIndex: '2' }}
+        >
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <Link className="link" to="/">
+                Home
+              </Link>
+            </div>
+            <div className="navbar-item">
+              <ScrollLink
+                activeClass="active"
+                className="link"
+                to="footer"
+                spy
+                smooth
+                offset={-70}
+                duration={500}
+              >
+                <button className="no-btn-nav" type="button">
+                  Contact
+                </button>
+              </ScrollLink>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
+};
 
 export { FormNav, MainNav };
