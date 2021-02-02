@@ -18,6 +18,8 @@ export default rsvpRoute.post('', async (req, res) => {
       lastName,
       email,
       organization,
+      assetClasses,
+      numberOfTeam,
       confirmed,
     } = req.body;
 
@@ -29,6 +31,8 @@ export default rsvpRoute.post('', async (req, res) => {
           firstName,
           lastName,
           organization,
+          assetClasses,
+          numberOfTeam,
           confirmed,
         },
       },

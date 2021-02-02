@@ -11,6 +11,8 @@ const rsvpSchema = new Schema(
     lastName: String,
     email: String,
     organization: String,
+    numberOfTeam: String,
+    assetClasses: Array,
     confirmed: Boolean,
   },
   { collection: 'rsvp' }
