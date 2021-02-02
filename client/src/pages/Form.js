@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormNav } from '../components/navbars';
-import FormInfoContainer from '../components/formInfoContainer';
+import FormInfoContainer from '../components/forms/formInfoContainer';
 import Footer from '../components/footer';
 import '../App.scss';
 

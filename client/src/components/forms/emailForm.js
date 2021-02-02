@@ -3,12 +3,14 @@
 /* eslint-disable import/no-named-as-default-member */
 import React, { useState } from 'react';
 import axios from 'axios';
-import AddCalendar from './addCalendar';
-import Modal from './modal';
+import ReactHtmlParser from 'react-html-parser';
+import AddCalendar from '../addCalendar';
+import Modal from '../modal';
+import RsvpForm from './rsvpForm';
 
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-const RsvpForm = () => {
+const EmailForm = () => {
   const [confirmEmail, setConfirmEmail] = useState('');
   const [recordConfirmed, setRecordConfirmed] = useState(false);
   const [state, setState] = useState({
@@ -17,6 +19,8 @@ const RsvpForm = () => {
     lastName: '',
     email: confirmEmail,
     organization: '',
+    numberOfTeam: '',
+    assetClasses: [],
     confirmed: false,
   });
   const [status, setStatus] = useState({
@@ -34,6 +38,8 @@ const RsvpForm = () => {
         lastName: '',
         email: '',
         organization: '',
+        numberOfTeam: '',
+        assetClasses: [],
         confirmed: false,
       });
       setStatus({
@@ -51,6 +57,13 @@ const RsvpForm = () => {
     setState({
       ...state,
       [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleAssets = e => {
+    setState({
+      ...state,
+      assetClasses: e,
     });
   };
 
@@ -72,13 +85,21 @@ const RsvpForm = () => {
           email: confirmEmail.toLowerCase(),
         });
 
-        if (res.status === 201) {
+        if (res.data.confirmed) {
+          setStatus({
+            status: `It appears this email has already been registered for this forum. If this is a mistake, or you would like to register with a different email, please <a class="link-1 no-btn" href="mailto:mark@hugo-lpf.com">
+            contact </a> forum organizer Mark Waite.`,
+            error: true,
+          });
+        } else if (res.status === 201) {
           setState({
             title: res.data.title,
             firstName: res.data.firstName,
             lastName: res.data.lastName,
             email: res.data.email,
             organization: res.data.organization,
+            numberOfTeam: res.data.numberOfTeam,
+            assetClasses: res.data.assetClasses,
             confirmed: true,
           });
           setRecordConfirmed(true);
@@ -91,7 +112,8 @@ const RsvpForm = () => {
     } catch (error) {
       if (error.response.data === 'No credentials found') {
         setStatus({
-          status: `Credentials not found. Please try a different email, or contact HUGO-LP Forums directly to register for this forum`,
+          status: `Credentials not found. If you want to participate in the above forum, <a class="link-1 no-btn" href="mailto:mark@hugo-lpf.com">
+          email </a> forum organizer Mark Waite.`,
           error: true,
         });
       } else {
@@ -129,6 +151,8 @@ const RsvpForm = () => {
             lastName: '',
             email: '',
             organization: '',
+            numberOfTeam: '',
+            assetClasses: [],
             confirmed: false,
           });
           setStatus({
@@ -155,6 +179,8 @@ const RsvpForm = () => {
       lastName: '',
       email: '',
       organization: '',
+      numberOfTeam: '',
+      assetClasses: [],
     });
     setRecordConfirmed(false);
     setConfirmEmail('');
@@ -200,22 +226,29 @@ const RsvpForm = () => {
               </button>
             </footer>
           </>
-          // )
         }
       />
       {!recordConfirmed ? (
         <div className="columns">
           <div className="column is-two-thirds">
+            <div className="column is-full">
+              <p>
+                Please enter your email below to confirm your invitation, and
+                participation in the upcoming forum listed above.
+              </p>
+            </div>
             <form onSubmit={handleEmailCheck}>
               <div className="container">
-                <div className="column is-half">
+                <div className="column is-full">
                   {status.status && (
                     <div className="content">
                       <p className={status.error ? 'has-text-danger' : ''}>
-                        {status.status}
+                        {ReactHtmlParser(status.status)}
                       </p>
                     </div>
                   )}
+                </div>
+                <div className="column is-half">
                   <div className="field">
                     <label className="label">Email *</label>
                     <div className="control">
@@ -240,131 +273,17 @@ const RsvpForm = () => {
           </div>
         </div>
       ) : (
-        <>
-          <div className="columns is-multiline">
-            <div className="column is-full">
-              <p>
-                Congradulations! Our records show you are invited to attend this
-                forum. The below credentials were found based on the email
-                entered.
-              </p>
-            </div>
-            <div className="column is-full">
-              <p>
-                If this is not your information, please contact HUGO-LP Forums
-                directly to correct the issue, or press 'Cancel' to perform a
-                new query. Otherwise, please make any desired changes to the
-                below information, and click 'Confirm' to officially register
-                for this event.
-              </p>
-            </div>
-          </div>
-          <div className="columns">
-            <div className="column is-two-thirds">
-              <form onSubmit={handleRSVP}>
-                <div className="container">
-                  <div className="columns is-multiline">
-                    {status.status && (
-                      <div className="column is-full">
-                        <div className="content">
-                          <p className={status.error ? 'has-text-danger' : ''}>
-                            {status.status}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                    <div className="column is-one-third is-centered">
-                      <div className="control">
-                        <label className="label">Email</label>
-                        <p>{state.email}</p>
-                      </div>
-                    </div>
-                    <div className="column is-one-third">
-                      <div className="field">
-                        <label className="label">First Name *</label>
-                        <div className="control">
-                          <input
-                            className="input"
-                            type="text"
-                            placeholder="e.g John"
-                            name="firstName"
-                            value={state.firstName}
-                            onChange={onChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="column is-one-third">
-                      <div className="field">
-                        <label className="label">Last Name *</label>
-                        <div className="control">
-                          <input
-                            className="input"
-                            type="text"
-                            placeholder="e.g Doe"
-                            name="lastName"
-                            value={state.lastName}
-                            onChange={onChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="column is-one-third">
-                      <div className="field">
-                        <div className="control">
-                          <label className="label">Job Title *</label>
-                          <div className="field">
-                            <div className="control">
-                              <div className="control">
-                                <input
-                                  className="input"
-                                  type="text"
-                                  placeholder="e.g. CIO"
-                                  name="title"
-                                  value={state.title}
-                                  onChange={onChange}
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="column is-half">
-                      <div className="field">
-                        <label className="label">Organization *</label>
-                        <div className="control">
-                          <input
-                            className="input"
-                            type="text"
-                            placeholder="e.g Hugo-LP"
-                            name="organization"
-                            value={state.organization}
-                            onChange={onChange}
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="column is-one-fifth is-centered">
-                      <button type="submit" value="submit" className="button">
-                        Confirm
-                      </button>
-                    </div>
-                    <div className="column is-one-fifth is-centered">
-                      <button onClick={handleReset} className="button">
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </>
+        <RsvpForm
+          handleRSVP={handleRSVP}
+          status={status}
+          state={state}
+          onChange={onChange}
+          handleAssets={handleAssets}
+          handleReset={handleReset}
+        />
       )}
     </>
   );
 };
 
-export default RsvpForm;
+export default EmailForm;

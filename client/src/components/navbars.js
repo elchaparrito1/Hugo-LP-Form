@@ -148,7 +148,7 @@ const MainNav = () => {
             <div className="navbar-item">
               <div className="buttons">
                 <Link className="button" to="/form">
-                  <strong>Registration</strong>
+                  <strong>Register</strong>
                 </Link>
               </div>
             </div>
@@ -233,7 +233,7 @@ const FormNav = () => {
         >
           <div className="navbar-end">
             <div className="navbar-item">
-              <Link className="link" to="/">
+              <Link className="form-nav-link" to="/">
                 Home
               </Link>
             </div>
@@ -247,7 +247,7 @@ const FormNav = () => {
                 offset={-70}
                 duration={500}
               >
-                <button className="no-btn-nav" type="button">
+                <button className="no-btn-form-nav" type="button">
                   Contact
                 </button>
               </ScrollLink>

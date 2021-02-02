@@ -1,5 +1,5 @@
 import React from 'react';
-import RsvpForm from './rsvpForm';
+import EmailForm from './emailForm';
 
 const FormInfoContainer = () => (
   <>
@@ -23,14 +23,9 @@ const FormInfoContainer = () => (
                 <h2 className="subtitle">
                   <strong>Investor Participation</strong>
                 </h2>
-                <p>
-                  HUGO-LP Forums are by invitation only. Please enter your email
-                  below to confirm your invitation, and participation in the
-                  upcoming forum listed above.
-                </p>
               </div>
               <br />
-              <RsvpForm />
+              <EmailForm />
             </section>
           </div>
         </div>
