@@ -1,6 +1,6 @@
 const assetOptions = [
   {
-    label: 'PC/VC',
+    label: 'PE/VC',
     value: 1,
   },
   {
