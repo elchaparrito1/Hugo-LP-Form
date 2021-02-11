@@ -113,6 +113,20 @@ th {
   line-height: 1.125;
 }
 
+.btn-a-tag {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  font-size: 1em;
+  color: $navy;
+}
+
+.btn-a-tag:hover {
+  cursor: pointer;
+  color: white;
+}
+
 //NavBar Styles:
 .main-page-logo {
   width: 250px;

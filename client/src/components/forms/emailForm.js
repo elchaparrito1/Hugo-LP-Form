@@ -12,8 +12,7 @@ import RsvpForm from './rsvpForm';
 /* eslint-disable jsx-a11y/label-has-associated-control */
 const EmailForm = () => {
   const [confirmEmail, setConfirmEmail] = useState('');
-  const [recordConfirmed, setRecordConfirmed] = useState(false);
-  const [state, setState] = useState({
+  const initialVal = {
     title: '',
     firstName: '',
     lastName: '',
@@ -22,7 +21,10 @@ const EmailForm = () => {
     numberOfTeam: '',
     assetClasses: [],
     confirmed: false,
-  });
+    terms: false,
+  };
+  const [recordConfirmed, setRecordConfirmed] = useState(false);
+  const [state, setState] = useState(initialVal);
   const [status, setStatus] = useState({
     status: '',
     error: false,
@@ -32,16 +34,7 @@ const EmailForm = () => {
   const handleModal = () => {
     if (isOpen) {
       setIsOpen(!isOpen);
-      setState({
-        title: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        organization: '',
-        numberOfTeam: '',
-        assetClasses: [],
-        confirmed: false,
-      });
+      setState(initialVal);
       setStatus({
         status: '',
         error: false,
@@ -54,9 +47,12 @@ const EmailForm = () => {
   };
 
   const onChange = e => {
+    const { target } = e;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name } = target;
     setState({
       ...state,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -101,6 +97,7 @@ const EmailForm = () => {
             numberOfTeam: res.data.numberOfTeam,
             assetClasses: res.data.assetClasses,
             confirmed: true,
+            terms: false,
           });
           setRecordConfirmed(true);
           setStatus({
@@ -145,16 +142,7 @@ const EmailForm = () => {
         const res = await axios.post('/api/rsvp', state);
 
         if (res.status === 201) {
-          setState({
-            title: '',
-            firstName: '',
-            lastName: '',
-            email: '',
-            organization: '',
-            numberOfTeam: '',
-            assetClasses: [],
-            confirmed: false,
-          });
+          setState(initialVal);
           setStatus({
             status: '',
             error: false,
@@ -173,15 +161,7 @@ const EmailForm = () => {
   };
 
   const handleReset = () => {
-    setState({
-      title: '',
-      firstName: '',
-      lastName: '',
-      email: '',
-      organization: '',
-      numberOfTeam: '',
-      assetClasses: [],
-    });
+    setState(initialVal);
     setRecordConfirmed(false);
     setConfirmEmail('');
   };

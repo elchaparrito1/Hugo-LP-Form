@@ -1,9 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/label-has-for */
-import React from 'react';
+import React, { useState } from 'react';
 import ReactMultiSelectCheckboxes from 'react-multiselect-checkboxes';
 import PropTypes from 'prop-types';
+import ReactTooltip from 'react-tooltip';
 import assetOptions from './options';
+import Modal from '../modal';
+import termsCondition from './terms-conditions';
 
 const RsvpForm = props => {
   const {
@@ -15,8 +18,49 @@ const RsvpForm = props => {
     handleReset,
   } = props;
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
+      <Modal
+        isOpen={isOpen}
+        offspring={
+          <>
+            <header className="modal-card-head has-background-grey-lighter">
+              <p className="modal-card-title">
+                Terms, Conditions & Disclosures
+              </p>
+              <button
+                type="button"
+                className="delete"
+                aria-label="close"
+                onClick={() => setIsOpen(false)}
+              ></button>
+            </header>
+            <section
+              className="modal-card-body has-background-grey-lighter"
+              style={{ padding: '30px' }}
+            >
+              <ol>
+                {termsCondition.map((term, index) => (
+                  <li key={index} style={{ margin: '0 0 10px 0' }}>
+                    {term}
+                  </li>
+                ))}
+              </ol>
+            </section>
+            <footer className="modal-card-foot has-background-grey-lighter">
+              <button
+                type="button"
+                className="button"
+                onClick={() => setIsOpen(false)}
+              >
+                Close
+              </button>
+            </footer>
+          </>
+        }
+      />
       <div className="columns is-multiline">
         <div className="column is-full">
           <p>
@@ -132,6 +176,31 @@ const RsvpForm = props => {
                   </div>
                 </div>
                 <div className="column is-full">
+                  <div className="field">
+                    <div className="control">
+                      <label className="checkbox" htmlFor="terms">
+                        <input
+                          id="terms"
+                          className="checkbox"
+                          type="checkbox"
+                          name="terms"
+                          value={state.terms}
+                          checked={state.terms}
+                          onChange={onChange}
+                        />{' '}
+                        I have read and agreed to the
+                        <button
+                          className="btn-a-tag"
+                          type="button"
+                          onClick={() => setIsOpen(true)}
+                        >
+                          Terms, Conditions & Disclosures
+                        </button>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div className="column is-full">
                   <p className="subtitle is-6">
                     <strong>Questionnaire:</strong>
                   </p>
@@ -169,9 +238,35 @@ const RsvpForm = props => {
                 </div>
 
                 <div className="column is-one-fifth is-centered">
-                  <button type="submit" value="submit" className="button">
-                    Confirm
-                  </button>
+                  {state.terms ? (
+                    <button
+                      title="This is only a test"
+                      type="submit"
+                      value="submit"
+                      className="button"
+                    >
+                      Confirm
+                    </button>
+                  ) : (
+                    <div>
+                      <ReactTooltip
+                        place="bottom"
+                        type="warning"
+                        effect="solid"
+                        backgroundColor="black"
+                      />
+                      <p data-tip="Please review Terms, Conditions & Disclosures">
+                        <button
+                          title="This is only a test"
+                          type="submit"
+                          value="submit"
+                          className="button is-static"
+                        >
+                          Confirm
+                        </button>
+                      </p>
+                    </div>
+                  )}
                 </div>
                 <div className="column is-one-fifth is-centered">
                   <button
