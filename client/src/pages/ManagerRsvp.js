@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormNav } from '../components/navbars';
-// import FormInfoContainer from '../components/formInfoContainer';
+import ManageRsvpForm from '../components/rsvpForms/managerRsvpForm';
 import Footer from '../components/footer';
 import '../App.scss';
 
@@ -10,7 +10,7 @@ const RSVP = () => (
       <FormNav />
       <div className="hero-body">
         <div className="container">
-          <h1>Hi</h1>
+          <ManageRsvpForm />
         </div>
       </div>
       <Footer />

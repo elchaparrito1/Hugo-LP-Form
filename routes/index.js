@@ -1,5 +1,6 @@
 // Index route will simply export an object containing all of our backend routes.
-import rsvpRoute from './rsvp';
+import investorRsvpRoute from './investor-rsvp';
 import confirmEmailRoute from './confirm-email';
+import managerRsvpRoute from './manager-rsvp';
 
-export { rsvpRoute, confirmEmailRoute };
+export { investorRsvpRoute, confirmEmailRoute, managerRsvpRoute };

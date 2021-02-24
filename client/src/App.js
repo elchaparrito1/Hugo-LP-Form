@@ -4,7 +4,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Form from './pages/Form';
-import RSVP from './pages/RSVP';
+import ManagerRsvp from './pages/ManagerRsvp';
+import InvestorRsvp from './pages/InvestorRsvp';
 import './App.scss';
 
 /* eslint-disable jsx-a11y/label-has-for */
@@ -15,8 +16,17 @@ const App = () => (
     <div>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/form" component={Form} />
-        <Route exact path="/rsvp/:id" component={RSVP} />
+        <Route exact path="/form/virtual-forum" component={Form} />
+        <Route
+          exact
+          path="/form/virtual-forum/investor-rsvp/:id"
+          component={InvestorRsvp}
+        />
+        <Route
+          exact
+          path="/form/virtual-forum/manager-rsvp/:id"
+          component={ManagerRsvp}
+        />
       </Switch>
     </div>
   </Router>

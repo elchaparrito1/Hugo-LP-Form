@@ -1,8 +1,8 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//ical.marudot.com//iCal Event Maker
-X-WR-CALNAME:Hugo-LP Virtual Forum
-NAME:Hugo-LP Virtual Forum
+X-WR-CALNAME:Hugo-LP Fall Forum
+NAME:Hugo-LP Fall Forum
 CALSCALE:GREGORIAN
 BEGIN:VTIMEZONE
 TZID:America/Denver
@@ -24,12 +24,13 @@ RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTAMP:20200320T162407Z
-UID:20200320T162407Z-1859291063@marudot.com
-DTSTART;VALUE=DATE:20210330
-DTEND;VALUE=DATE:20210331
+DTSTAMP:20210222T220554Z
+UID:20210222T220554Z-383758511@marudot.com
+DTSTART;VALUE=DATE:20210428
+DTEND;VALUE=DATE:20210430
 SUMMARY:Hugo-LP Forum
-URL:http%3A%2F%2Fwww.hugo-lpf.com
-DESCRIPTION:HUGO Forum is an invitation-only event that allows investors to meet multiple managers in small LP groups. Our upcoming forum will be a virtual event. The event provides an efficient platform to meet other investors and managers over two half-day sessions.
+URL:http://www.hugo-lpf.com
+DESCRIPTION:HUGO Forum - Virtual Event\nDate: Apr 28\, 2021 - Apr 29\, 2021\nVenue: Online\nHUGO Forum is an invitation-only event that allows investors to meet multiple managers in small LP groups. Our upcoming forum will be a virtual event. The event provides an efficient platform to meet other investors and managers over two half-day sessions.
+LOCATION:Online
 END:VEVENT
 END:VCALENDAR

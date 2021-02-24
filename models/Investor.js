@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const rsvpSchema = new Schema(
+const investorSchema = new Schema(
   {
+    type: String,
     title: String,
     firstName: String,
     lastName: String,
@@ -18,4 +19,4 @@ const rsvpSchema = new Schema(
   { collection: 'rsvp' }
 );
 
-mongoose.model('rsvps', rsvpSchema);
+mongoose.model('rsvps', investorSchema);

@@ -1,25 +1,27 @@
 import express from 'express';
 
-require('../models/Rsvp');
+require('../models/Manager');
 
-const Rsvp = require('mongoose').model('rsvps');
+const Rsvp = require('mongoose').model('rsvpstwo');
 
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 
-const rsvpRoute = express.Router();
+const managerRsvpRoute = express.Router();
 
-export default rsvpRoute.post('', async (req, res) => {
+export default managerRsvpRoute.post('', async (req, res) => {
   try {
     const {
-      title,
-      firstName,
-      lastName,
+      type,
+      fullName,
       email,
-      organization,
-      assetClasses,
-      numberOfTeam,
+      phone,
+      orgName,
+      streetAddress,
+      city,
+      state,
+      zipcode,
       confirmed,
     } = req.body;
 
@@ -27,12 +29,15 @@ export default rsvpRoute.post('', async (req, res) => {
       { email },
       {
         $set: {
-          title,
-          firstName,
-          lastName,
-          organization,
-          assetClasses,
-          numberOfTeam,
+          type,
+          fullName,
+          email,
+          phone,
+          orgName,
+          streetAddress,
+          city,
+          state,
+          zipcode,
           confirmed,
         },
       },
@@ -50,12 +55,12 @@ export default rsvpRoute.post('', async (req, res) => {
       to: [
         {
           email: req.body.email,
-          name: req.body.firstName,
+          name: req.body.fullName,
         },
       ],
-      templateId: 1,
+      templateId: 3,
       params: {
-        name: req.body.firstName,
+        name: req.body.fullName,
         email: req.body.email,
       },
       headers: {

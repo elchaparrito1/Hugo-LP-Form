@@ -147,7 +147,7 @@ const MainNav = () => {
             </div>
             <div className="navbar-item">
               <div className="buttons">
-                <Link className="button" to="/form">
+                <Link className="button" to="/form/virtual-forum">
                   <strong>Register</strong>
                 </Link>
               </div>

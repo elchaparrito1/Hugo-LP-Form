@@ -1,6 +1,7 @@
 import React from 'react';
 import { Element } from 'react-scroll';
 import { Link } from 'react-router-dom';
+import pdf from '../documents/meeting-outline.pdf';
 
 const MainLanding = () => (
   <>
@@ -14,7 +15,7 @@ const MainLanding = () => (
                 <h2 className="custom-h2 is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-5-touch is-size-6-tablet is-size-6-mobile">
                   Welcome to HUGO-LP Forums. We are a special invitation event
                   designed to bring together leading investors and asset
-                  management firms.
+                  managers.
                 </h2>
               </div>
             </div>
@@ -25,7 +26,19 @@ const MainLanding = () => (
                   <Link style={{ color: 'orange' }} to="/form">
                     Register
                   </Link>{' '}
-                  for upcoming forum: Virtual Event on March 30-31, 2021
+                  for upcoming{' '}
+                  <button type="button" className="pdf-download">
+                    <a
+                      className="custom-h2 is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-5-touch is-size-6-tablet is-size-6-mobile pdf-download"
+                      style={{ color: 'orange' }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={pdf}
+                    >
+                      <strong>forum</strong>
+                    </a>
+                  </button>
+                  : Virtual Event on April 28-29, 2021
                 </h2>
               </div>
             </div>

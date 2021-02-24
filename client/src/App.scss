@@ -120,6 +120,7 @@ th {
   text-shadow: 0px 0px 0px transparent;
   font-size: 1em;
   color: $navy;
+  margin-left: 3px;
 }
 
 .btn-a-tag:hover {
@@ -332,6 +333,14 @@ th {
   background-color: transparent;
   color: $navy;
   border: none;
+}
+
+.pdf-download {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: inherit;
 }
 
 .pdf-download:hover,

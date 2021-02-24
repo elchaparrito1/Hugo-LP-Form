@@ -1,11 +1,15 @@
-import { rsvpRoute, confirmEmailRoute } from './routes/index';
+import {
+  investorRsvpRoute,
+  managerRsvpRoute,
+  confirmEmailRoute,
+} from './routes/index';
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-require('./models/Rsvp');
+require('./models/Investor');
 
 // setInterval(function() {
 //   http.get("https://hugo-lp.herokuapp.com/");
@@ -52,7 +56,8 @@ connection.once('open', function() {
 // });
 const apiRouter = express.Router();
 app.use('/api', apiRouter);
-apiRouter.use('/rsvp', rsvpRoute);
+apiRouter.use('/investor-rsvp', investorRsvpRoute);
+apiRouter.use('/manager-rsvp', managerRsvpRoute);
 apiRouter.use('/confirm-email', confirmEmailRoute);
 
 app.get('*', (req, res) => {
