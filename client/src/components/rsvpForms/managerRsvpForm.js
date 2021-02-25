@@ -206,7 +206,7 @@ const ManagerRsvpForm = () => {
                               className="input"
                               type="text"
                               placeholder="e.g John Doe"
-                              name="firstName"
+                              name="fullName"
                               value={formState.fullName}
                               onChange={onChange}
                             />
@@ -240,7 +240,7 @@ const ManagerRsvpForm = () => {
                                   <input
                                     className="input"
                                     type="text"
-                                    placeholder="e.g. CIO"
+                                    placeholder="e.g. Example Enterprises"
                                     name="orgName"
                                     value={formState.orgName}
                                     onChange={onChange}

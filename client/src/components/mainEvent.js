@@ -100,8 +100,8 @@ const MainEvent = () => {
                     <div className={classes.container}>
                       <Collapse in={checkTwo}>
                         <h2 className="main-event-text">
-                          The HUGO will include some virtual roundtable
-                          discussion groups on areas of current interest.
+                          HUGO will include some virtual roundtable discussion
+                          groups on areas of current interest.
                         </h2>
                       </Collapse>
                     </div>
