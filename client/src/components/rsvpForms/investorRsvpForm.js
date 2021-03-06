@@ -10,6 +10,7 @@ import assetOptions from './options';
 import Modal from '../modal';
 import AddCalendar from '../addCalendar';
 import pdf from '../../documents/Investor-Disclaimer.pdf';
+import { useStatusHook } from '../customHooks/useStatusHook';
 
 const InvestorRsvpForm = () => {
   const location = useLocation();
@@ -42,10 +43,9 @@ const InvestorRsvpForm = () => {
 
   const [state, setState] = useState(initialVal);
   const [isOpen, setIsOpen] = useState(false);
-  const [status, setStatus] = useState({
-    status: '',
-    error: false,
-  });
+  const [status, dispatch] = useStatusHook();
+
+  console.log(status);
 
   const onChange = e => {
     const { target } = e;
@@ -69,16 +69,9 @@ const InvestorRsvpForm = () => {
     const blanks = Object.entries(state).filter(([k, v]) => v === '');
     try {
       if (blanks.length > 0) {
-        setStatus({
-          status:
-            'Missing information. Please fill in all required fields (*).',
-          error: true,
-        });
+        dispatch({ type: 'MISSING' });
       } else {
-        setStatus({
-          status: 'Processing...',
-          error: false,
-        });
+        dispatch({ type: 'PROCESSING' });
 
         const resData = state;
         resData.confirmed = true;
@@ -86,19 +79,13 @@ const InvestorRsvpForm = () => {
         const res = await axios.post('/api/investor-rsvp', resData);
 
         if (res.status === 201) {
-          setStatus({
-            status: '',
-            error: false,
-          });
+          dispatch({ type: 'SUCCESS' });
           setIsOpen(true);
         }
       }
     } catch (error) {
       if (error.response.data === 'error') {
-        setStatus({
-          status: 'Error occurred. Please refresh page and try again.',
-          error: true,
-        });
+        dispatch({ type: 'ERROR' });
       }
     }
   };
@@ -199,7 +186,7 @@ const InvestorRsvpForm = () => {
                           </div>
                         </div>
                       )}
-                      <div className="column is-one-third is-centered">
+                      <div className="column is-full is-centered">
                         <div className="control">
                           <label className="label">Email</label>
                           <p>{state.email}</p>

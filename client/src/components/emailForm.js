@@ -6,46 +6,31 @@ import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
 import { useHistory } from 'react-router-dom';
 import FormInfoWrapper from './formInforWrapper';
+import { useStatusHook } from './customHooks/useStatusHook';
 
 /* eslint-disable jsx-a11y/label-has-for */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 const EmailForm = () => {
   const [confirmEmail, setConfirmEmail] = useState('');
   const history = useHistory();
-  const [status, setStatus] = useState({
-    status: '',
-    error: false,
-  });
+  const [status, dispatch] = useStatusHook();
 
   const handleEmailCheck = async e => {
     e.preventDefault();
 
     try {
       if (confirmEmail === '') {
-        setStatus({
-          status: 'Please enter email to confirm invitation.',
-          error: true,
-        });
+        dispatch({ type: 'NOEMAIL' });
       } else {
-        setStatus({
-          status: 'Verifying email address...',
-          error: false,
-        });
+        dispatch({ type: 'PROCESSING' });
         const res = await axios.post('/api/confirm-email', {
           email: confirmEmail.toLowerCase(),
         });
 
         if (res.data.confirmed) {
-          setStatus({
-            status: `It appears this email has already been registered for this forum. If this is a mistake, or you would like to register with a different email, please <a class="link-1 no-btn" href="mailto:mark@hugo-lpf.com">
-            contact </a> forum organizer Mark Waite.`,
-            error: true,
-          });
+          dispatch({ type: 'REGISTERED' });
         } else if (res.status === 201) {
-          setStatus({
-            status: '',
-            error: false,
-          });
+          dispatch({ type: 'SUCCESS' });
 
           if (res.data.type === 'investor') {
             history.push({
@@ -62,17 +47,9 @@ const EmailForm = () => {
       }
     } catch (error) {
       if (error.response.data === 'No credentials found') {
-        setStatus({
-          status: `Credentials not found. If you want to participate in the above forum, <a class="link-1 no-btn" href="mailto:mark@hugo-lpf.com">
-          email </a> forum organizer Mark Waite.`,
-          error: true,
-        });
+        dispatch({ type: 'NOTFOUND' });
       } else {
-        setStatus({
-          status:
-            'Oops... Something went wrong. Please refesh the page and try again.',
-          error: true,
-        });
+        dispatch({ type: 'ERROR' });
       }
     }
   };
