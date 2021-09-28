@@ -51,16 +51,18 @@ export default managerRsvpRoute.post('', async (req, res) => {
 
     let sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
+    const firstName = req.body.fullName.split(' ')[0];
+
     sendSmtpEmail = {
       to: [
         {
           email: req.body.email,
-          name: req.body.fullName,
+          name: firstName,
         },
       ],
       templateId: 3,
       params: {
-        name: req.body.fullName,
+        name: firstName,
         email: req.body.email,
       },
       headers: {

@@ -147,9 +147,14 @@ const MainNav = () => {
             </div>
             <div className="navbar-item">
               <div className="buttons">
-                <Link className="button" to="/form/virtual-forum">
+                <a
+                  className="button"
+                  href="https://www.eventbrite.com/e/hugo-lp-forums-fall-2021-virtual-forum-tickets-170390105392"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <strong>Register</strong>
-                </Link>
+                </a>{' '}
               </div>
             </div>
           </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Element } from 'react-scroll';
-import { Link } from 'react-router-dom';
 import pdf from '../documents/meeting-outline.pdf';
 
 const MainLanding = () => (
@@ -21,14 +20,14 @@ const MainLanding = () => (
             <div className="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
               <div className="column is-half is-offset-6">
                 <h2 className="custom-h2 is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-5-touch is-size-6-tablet is-size-6-mobile">
-                  <u>Upcoming event:</u> HUGO 2021 Virtual Forum
+                  <u>Upcoming event:</u> HUGO Fall Forum
                 </h2>
               </div>
             </div>
             <div className="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
               <div className="column is-half is-offset-6">
                 <h2 className="custom-h2 is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-5-touch is-size-6-tablet is-size-6-mobile">
-                  <u>Date:</u> April 28-29, 2021
+                  <u>Date:</u> Nov 16-17, 2021
                 </h2>
               </div>
             </div>
@@ -52,14 +51,19 @@ const MainLanding = () => (
             </div>
             <div className="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
               <div className="column is-half is-offset-6">
-                <h2 className="custom-h2 is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-5-touch is-size-6-tablet is-size-6-mobile">
+                <div className="custom-h2 is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-5-touch is-size-6-tablet is-size-6-mobile">
                   <u>Register now:</u>{' '}
                   <h2 className="custom-h2 is-size-4-fullhd is-size-4-widescreen is-size-5-desktop is-size-5-touch is-size-6-tablet is-size-6-mobile">
-                    <Link style={{ color: 'orange' }} to="/form/virtual-forum">
+                    <a
+                      style={{ color: 'orange' }}
+                      href="https://www.eventbrite.com/e/hugo-lp-forums-fall-2021-virtual-forum-tickets-170390105392"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       REGISTRATION
-                    </Link>{' '}
+                    </a>{' '}
                   </h2>
-                </h2>
+                </div>
               </div>
             </div>
           </div>
